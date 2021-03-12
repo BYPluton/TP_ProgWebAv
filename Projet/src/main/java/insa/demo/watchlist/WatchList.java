@@ -1,27 +1,23 @@
 package insa.demo.watchlist;
 
 import insa.demo.item.Item;
-import insa.demo.user.User;
 
 import javax.persistence.*;
-import java.util.ArrayList;
+import java.util.List;
 
 @Entity
 public class WatchList {
     @Id
-    @GeneratedValue(strategy= GenerationType.AUTO)
+    @GeneratedValue(strategy= GenerationType.IDENTITY)
     private Long id;
     private String name;
-    @OneToOne(cascade = CascadeType.ALL)
-    private User user;
-    @ManyToMany(cascade = CascadeType.ALL)
-    private ArrayList<Item> listItems;
+    @ManyToMany(cascade = CascadeType.ALL, fetch = FetchType.EAGER)
+    private List<Item> listItems;
 
     public WatchList() {}
 
-    public WatchList(String name, User user, ArrayList<Item> listItems) {
+    public WatchList(String name, List<Item> listItems) {
         this.name = name;
-        this.user = user;
         this.listItems = listItems;
     }
 
@@ -41,19 +37,11 @@ public class WatchList {
         this.name = name;
     }
 
-    public User getUser() {
-        return user;
-    }
-
-    public void setUser(User user) {
-        this.user = user;
-    }
-
-    public ArrayList<Item> getListItems() {
+    public List<Item> getListItems() {
         return listItems;
     }
 
-    public void setListItems(ArrayList<Item> listItems) {
+    public void setListItems(List<Item> listItems) {
         this.listItems = listItems;
     }
 }
