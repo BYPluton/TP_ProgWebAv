@@ -8,12 +8,12 @@ import java.util.List;
 @Entity
 public class User {
     @Id
-    @GeneratedValue(strategy= GenerationType.AUTO)
+    @GeneratedValue(strategy= GenerationType.IDENTITY)
     private Long id;
     private String name;
     private String pseudo;
     private String password;
-    @ManyToOne(cascade = CascadeType.ALL)
+    @OneToMany(cascade = CascadeType.ALL , fetch = FetchType.EAGER)
     private List<WatchList> watchLists;
 
     public User() {

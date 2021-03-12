@@ -1,7 +1,9 @@
 package insa.demo;
 
+import insa.demo.resources.ItemResource;
+import insa.demo.resources.users.UserResource;
+import insa.demo.resources.watchlists.WatchListResource;
 import org.glassfish.jersey.server.ResourceConfig;
-import org.springframework.context.annotation.Configuration;
 import org.springframework.stereotype.Component;
 import org.glassfish.jersey.servlet.ServletProperties;
 import javax.ws.rs.ApplicationPath;
@@ -9,10 +11,13 @@ import javax.ws.rs.ApplicationPath;
 
 @Component
 @ApplicationPath("rest")
-@Configuration
 
 public class JerseyConfiguration extends ResourceConfig {
     public JerseyConfiguration() {
+        register(ItemResource.class);
+        register(WatchListResource.class);
+        register(UserResource.class);
+
         property(ServletProperties.FILTER_FORWARD_ON_404, true);
     }
 }

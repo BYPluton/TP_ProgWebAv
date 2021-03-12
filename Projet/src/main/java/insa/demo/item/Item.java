@@ -1,13 +1,11 @@
 package insa.demo.item;
 
-import insa.demo.watchlist.WatchList;
-
 import javax.persistence.*;
-import java.util.ArrayList;
 
+@Entity
 public class Item {
     @Id
-    @GeneratedValue(strategy = GenerationType.AUTO)
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
     private String titre;
 
