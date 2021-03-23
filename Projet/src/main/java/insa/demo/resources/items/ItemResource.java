@@ -1,4 +1,4 @@
-package insa.demo.resources;
+package insa.demo.resources.items;
 
 import insa.demo.item.Item;
 import insa.demo.item.ItemRepository;

@@ -1,4 +1,4 @@
-package insa.demo.resources.watchlists;
+package insa.demo.resources.items;
 
 public class ItemInput {
     Long idItem;

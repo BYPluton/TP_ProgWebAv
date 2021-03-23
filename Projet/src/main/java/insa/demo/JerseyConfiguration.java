@@ -1,6 +1,6 @@
 package insa.demo;
 
-import insa.demo.resources.ItemResource;
+import insa.demo.resources.items.ItemResource;
 import insa.demo.resources.users.UserResource;
 import insa.demo.resources.watchlists.WatchListResource;
 import org.glassfish.jersey.server.ResourceConfig;

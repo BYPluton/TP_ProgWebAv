@@ -1,4 +1,4 @@
-package insa.demo.resources.users;
+package insa.demo.resources.watchlists;
 
 public class WatchInput {
     Long idWatch;

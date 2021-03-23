@@ -2,8 +2,7 @@ package insa.demo.resources.watchlists;
 
 import insa.demo.item.Item;
 import insa.demo.item.ItemRepository;
-import insa.demo.resources.users.WatchInput;
-import insa.demo.user.User;
+import insa.demo.resources.items.ItemInput;
 import insa.demo.watchlist.WatchList;
 import insa.demo.watchlist.WatchListRepository;
 import org.springframework.beans.factory.annotation.Autowired;

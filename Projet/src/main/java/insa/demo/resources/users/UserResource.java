@@ -1,5 +1,6 @@
 package insa.demo.resources.users;
 
+import insa.demo.resources.watchlists.WatchInput;
 import insa.demo.user.User;
 import insa.demo.user.UserRepository;
 import insa.demo.watchlist.WatchList;
@@ -10,7 +11,6 @@ import javax.ws.rs.*;
 import javax.ws.rs.core.MediaType;
 import javax.ws.rs.core.Response;
 import java.util.ArrayList;
-import java.util.List;
 import java.util.Optional;
 
 @Path("users")

@@ -1,0 +1,10 @@
+.carre_noir{
+    width : 350px;
+    height : 400px;
+    background : #111;
+}
+.carre_blanc{
+    width : 350px;
+    height : 400px;
+    background : rgb(194, 41, 41);
+}
