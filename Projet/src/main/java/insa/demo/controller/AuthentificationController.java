@@ -9,6 +9,7 @@ import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.PostMapping;
 
+import javax.servlet.http.HttpSession;
 import java.util.Optional;
 
 @Controller
@@ -23,15 +24,15 @@ public class AuthentificationController {
 	}
 
 	@PostMapping("/authentification")
-	public String testt(@ModelAttribute Test user, Model model) {
+	public String testt(@ModelAttribute Test user, Model model, HttpSession session) {
 		Optional<User> pOpt = userRepository.findByPseudo(user.getPseudo());
 		if(!pOpt.isPresent())
-			return	"authentification";
+			return "authentification";
 		User u = pOpt.get();
 		if(!u.getPassword().equals(user.getMdp()))
 			return	"authentification";
-		model.addAttribute("user", u);
-		return "result";
+		session.setAttribute("user", u);
+		return "Accueil";
 	}
 
 }
