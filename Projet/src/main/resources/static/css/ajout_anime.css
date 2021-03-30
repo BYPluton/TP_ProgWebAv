@@ -41,16 +41,11 @@ body{
     color: inherit;}
 
 .block{
+    margin-top: 5%;
     background-color: white;
 }
-.watchliste{
-    padding-top: 2.5%;
-    padding-left: 2.5%;
-    padding-right: 2.5%;
-}
-.watchliste:last-child{
-    padding-bottom: 2.5%;
-}
+/*.watchliste{
+}*/
 
 .watchliste ul{
     list-style-type: none;
@@ -68,6 +63,21 @@ body{
     text-decoration: none;
 }
 
-.montexte{
-    color : #333 !important;
+form{
+    padding:2.5%;
+}
+
+.form-group{
+    margin-bottom: 1%;
+}
+.form-group:last-child{
+    margin-bottom: 0%;
+}
+.btn{
+    margin-top: 0%;
+    
+}
+.btn-primary{
+    background-color: #333!important;
+    border-color: #333!important;
 }

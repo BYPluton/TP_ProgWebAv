@@ -1,0 +1,88 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <title>Accueil</title>
+        <!-- Required meta tags -->
+        <meta charset="utf-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+        <!-- Bootstrap CSS -->
+        <link rel="stylesheet" type="text/css" href="../static/css/animes.css">
+        <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-BmbxuPwQa2lc/FVzBcNJ7UAyJxM6wuqIj61tLrc4wSX0szH/Ev+nYRRuWlolflfl" crossorigin="anonymous">
+    </head>
+    <body>
+        <div class="conteneur">
+            <div class="navbarre">
+                <ul class="ul">
+                    <li class ="li"><a href="../templates/accueil.html">Accueil</a></li>
+                    <li class ="li"><a href="../templates/animes.html">Animes</a></li>
+                    <li class ="li"><a href="../templates/profil.html">Mon profil</a></li>
+                </ul>
+            </div>
+            <div class="block">
+                <div>
+                    <ul class="ul"><li class ="li"><a>Voici les animes disponibles sur le site :</a></li></ul>
+                </div>
+                <div class="espace"></div>
+                    <div class="container">
+                        <div id="liste" class="row row-cols-1 row-cols-sm-2 row-cols-md-3 g-3">
+                            <!-- Vignette -->
+                            <div class="col">
+                                <div class="card shadow-sm">
+                                    <img class ="card-img-top" src="../static/css/img/anime_db/naruto.jpeg">
+                                    <div class="card-body" >
+                                        <div class="d-flex justify-content-between align-items-center">
+                                            <p class="card-text">Naruto</p>
+                                            <small class="text-muted">220 épisodes</small>
+                                        </div>
+                                    </div>
+                                    <div class="d-flex justify-content-end align-items-center">
+                                        <div class="btn-group">
+                                            <button type="button" class="btn btn-danger">Supprimer</button>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        <!-- Fin Vignette -->
+                            <div class="col">
+                                <div class="card shadow-sm">
+                                    <img class="card-img-top" src="https://chromabox.com/uploads/blog/posts/1596035719_dra064lxgtslgmfveh-zvwdjmji-e1567688022552.jpg">
+                                    <div class="card-body">
+                                        <div class="d-flex justify-content-between align-items-center">
+                                            <p class="card-text">Fairy Tail</p>
+                                            <small class="text-muted">328 épisodes</small>
+                                        </div>
+                                    </div>
+                                    <div class="d-flex justify-content-end align-items-center">
+                                        <div class="btn-group">
+                                            <button type="button" class="btn btn-danger">Supprimer</button>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        <div class="col">
+                            <div class="card shadow-sm">
+                                <img class="card-img-top" src="https://images4.alphacoders.com/698/thumb-1920-698782.jpg">
+                                <div class="card-body">
+                                    <div class="d-flex justify-content-between align-items-center">
+                                        <p class="card-text">My Hero Academia</p>
+                                        <small class="text-muted">89 épisodes</small>
+                                    </div>
+                                </div>
+                                <div class="d-flex justify-content-end align-items-center">
+                                    <div class="btn-group">
+                                        <button type="button" class="btn btn-danger">Supprimer</button>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div style="margin-top: 1%;">
+                <a id="monbouton" href="../templates/ajout_anime.html" class="btn btn-primary btn-lg" style="background-color: #333; border: none;" role="button">Ajouter un anime</button></a>
+            </div>
+        </div>
+    </body>
+    <script type="text/javascript" src="../static/js/jquery-3.6.0.min.js"></script>
+    <script type="text/javascript" src="../static/js/animes.js"></script>   
+</html>
