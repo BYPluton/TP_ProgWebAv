@@ -3,6 +3,8 @@ package insa.demo.resources.watchlists;
 import insa.demo.item.Item;
 import insa.demo.item.ItemRepository;
 import insa.demo.resources.items.ItemInput;
+import insa.demo.user.User;
+import insa.demo.user.UserRepository;
 import insa.demo.watchlist.WatchList;
 import insa.demo.watchlist.WatchListRepository;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -20,6 +22,9 @@ public class WatchListResource {
 
     @Autowired
     private ItemRepository itemRepository;
+
+    @Autowired
+    private UserRepository userRepository;
 
     @GET
     @Produces(MediaType.APPLICATION_JSON)

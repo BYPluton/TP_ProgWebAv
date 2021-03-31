@@ -11,14 +11,24 @@ public class WatchList {
     @GeneratedValue(strategy= GenerationType.IDENTITY)
     private Long id;
     private String name;
+    private String description;
     @ManyToMany(cascade = CascadeType.ALL, fetch = FetchType.EAGER)
     private List<Item> listItems;
 
     public WatchList() {}
 
-    public WatchList(String name, List<Item> listItems) {
+    public WatchList(String name, String description, List<Item> listItems) {
         this.name = name;
+        this.description = description;
         this.listItems = listItems;
+    }
+
+    public String getDescription() {
+        return description;
+    }
+
+    public void setDescription(String description) {
+        this.description = description;
     }
 
     public Long getId() {

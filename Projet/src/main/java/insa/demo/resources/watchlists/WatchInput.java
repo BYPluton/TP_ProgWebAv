@@ -1,17 +1,26 @@
 package insa.demo.resources.watchlists;
 
 public class WatchInput {
-    Long idWatch;
+    String name;
+    String description;
 
     public WatchInput() {
         super();
     }
 
-    public Long getIdWatch() {
-        return idWatch;
+    public String getName() {
+        return name;
     }
 
-    public void setIdWatch(Long idWatch) {
-        this.idWatch = idWatch;
+    public void setName(String name) {
+        this.name = name;
+    }
+
+    public String getDescription() {
+        return description;
+    }
+
+    public void setDescription(String description) {
+        this.description = description;
     }
 }

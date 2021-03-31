@@ -35,6 +35,27 @@ public class UserResource {
         return userRepository.save(u);
     }
 
+    @GET
+    @Path("/{idUser}/watchlists")
+    @Produces(MediaType.APPLICATION_JSON)
+    public Response getWatchListExistant(@PathParam("idUser") Long idUser) {
+        Optional<User> pOpt = userRepository.findById(idUser);
+
+        if(!pOpt.isPresent()) {
+            return Response.status(Response.Status.NOT_FOUND).build();
+        }
+
+        User u = pOpt.get();
+
+        if(u.getWatchLists() == null) {
+            u.setWatchLists(new ArrayList<>());
+        }
+
+        var list = u.getWatchLists();
+
+        return Response.ok(list).build();
+    }
+
     @POST
     @Path("{idUser}/watchlists")
     @Produces(MediaType.APPLICATION_JSON)
@@ -57,4 +78,7 @@ public class UserResource {
         userRepository.save(u);
         return Response.ok(u).build();
     }
+
+
+
 }

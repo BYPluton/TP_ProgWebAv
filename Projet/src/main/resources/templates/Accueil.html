@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
     <head>
         <title>Accueil</title>
         <!-- Required meta tags -->
@@ -31,6 +31,7 @@
               </section>
             <!-- Fin Message d'accueil -->
             <div class="block">
+                <div id="idUser" th:text="${session.user.id}"></div>
                 <div>
                     <ul class="ul"><li class ="li"><a>Vos listes</a></li></ul>
                 </div>

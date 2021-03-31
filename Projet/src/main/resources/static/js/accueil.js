@@ -1,7 +1,13 @@
 let $maListe = $("#liste");
 
 $(document).ready(function () {
-    $.get("http://localhost:8080/rest/watchlists", function(listes){
+    let id = document.getElementById("idUser").textContent;
+    document.getElementById("idUser").remove();
+    sessionStorage.setItem("idUser", id);
+
+
+
+    $.get("http://localhost:8080/rest/users/" + id + "/watchlists", function(listes){
         listes.forEach( liste => ajouter(liste));
     })
     /*à modifier pour le delete
