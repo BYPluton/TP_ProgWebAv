@@ -4,6 +4,7 @@ import insa.demo.item.Item;
 
 import javax.persistence.*;
 import java.util.List;
+import java.util.Objects;
 
 @Entity
 public class WatchList {
@@ -12,7 +13,7 @@ public class WatchList {
     private Long id;
     private String name;
     private String description;
-    @ManyToMany(cascade = CascadeType.ALL, fetch = FetchType.EAGER)
+    @ManyToMany(cascade = CascadeType.ALL , fetch = FetchType.EAGER)
     private List<Item> listItems;
 
     public WatchList() {}
@@ -53,5 +54,13 @@ public class WatchList {
 
     public void setListItems(List<Item> listItems) {
         this.listItems = listItems;
+    }
+
+    @Override
+    public boolean equals(Object o) {
+        if (this == o) return true;
+        if (o == null || getClass() != o.getClass()) return false;
+        WatchList watchList = (WatchList) o;
+        return Objects.equals(id, watchList.id);
     }
 }

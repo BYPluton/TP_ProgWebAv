@@ -23,9 +23,6 @@ public class WatchListResource {
     @Autowired
     private ItemRepository itemRepository;
 
-    @Autowired
-    private UserRepository userRepository;
-
     @GET
     @Produces(MediaType.APPLICATION_JSON)
     public ArrayList<WatchList> getWatchLists() {
@@ -41,12 +38,43 @@ public class WatchListResource {
         return watchListRepository.save(u);
     }
 
-    @POST
-    @Path("{idWatch}/items")
+    @GET
+    @Path("{idWatch}/items/")
     @Produces(MediaType.APPLICATION_JSON)
-    public Response addWatchListExistant(@PathParam("idWatch") Long idWatch, ItemInput idItem) {
+    public Response getItems(@PathParam("idWatch") Long idWatch, @PathParam("idItem") Long idItem) {
         Optional<WatchList> pOpt = watchListRepository.findById(idWatch);
-        Optional<Item> lOpt = itemRepository.findById(idItem.getIdItem());
+        if(!pOpt.isPresent())
+            return Response.status(Response.Status.NOT_FOUND).build();
+
+        WatchList w = pOpt.get();
+        return Response.ok(w.getListItems()).build();
+    }
+
+    @DELETE
+    @Path("{idWatch}/items/{idItem}")
+    @Produces(MediaType.APPLICATION_JSON)
+    public Response deleteItem(@PathParam("idWatch") Long idWatch, @PathParam("idItem") Long idItem) {
+        Optional<WatchList> pOpt = watchListRepository.findById(idWatch);
+        Optional<Item> lOpt = itemRepository.findById(idItem);
+
+        if(!lOpt.isPresent() || !pOpt.isPresent()) {
+            return Response.status(Response.Status.NOT_FOUND).build();
+        }
+
+        WatchList w = pOpt.get();
+        Item i = lOpt.get();
+
+        w.getListItems().remove(i);
+        watchListRepository.save(w);
+        return Response.ok(w).build();
+    }
+
+    @POST
+    @Path("{idWatch}/items/{idItem}")
+    @Produces(MediaType.APPLICATION_JSON)
+    public Response addItem(@PathParam("idWatch") Long idWatch, @PathParam("idItem") Long idItem) {
+        Optional<WatchList> pOpt = watchListRepository.findById(idWatch);
+        Optional<Item> lOpt = itemRepository.findById(idItem);
 
         if(!lOpt.isPresent() || !pOpt.isPresent()) {
             return Response.status(Response.Status.NOT_FOUND).build();
@@ -63,4 +91,5 @@ public class WatchListResource {
         watchListRepository.save(w);
         return Response.ok(w).build();
     }
+
 }

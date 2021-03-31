@@ -20,13 +20,6 @@ public class User {
         super();
     }
 
-    public User(String name, String pseudo, String password, List<WatchList> watchLists) {
-        this.name = name;
-        this.pseudo = pseudo;
-        this.password = password;
-        this.watchLists = watchLists;
-    }
-
     public Long getId() {
         return id;
     }

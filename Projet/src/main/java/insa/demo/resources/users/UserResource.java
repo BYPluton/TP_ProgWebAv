@@ -35,10 +35,10 @@ public class UserResource {
         return userRepository.save(u);
     }
 
-    @GET
-    @Path("/{idUser}/watchlists")
+    @PATCH
+    @Path("{idUser}")
     @Produces(MediaType.APPLICATION_JSON)
-    public Response getWatchListExistant(@PathParam("idUser") Long idUser) {
+    public Response changePassword(@PathParam("idUser") Long idUser, String password) {
         Optional<User> pOpt = userRepository.findById(idUser);
 
         if(!pOpt.isPresent()) {
@@ -46,29 +46,39 @@ public class UserResource {
         }
 
         User u = pOpt.get();
-
-        if(u.getWatchLists() == null) {
-            u.setWatchLists(new ArrayList<>());
-        }
-
-        var list = u.getWatchLists();
-
-        return Response.ok(list).build();
+        u.setPassword(password);
+        userRepository.save(u);
+        return Response.ok(u).build();
     }
 
-    /*@POST
-    @Path("{idUser}/watchlists")
+    @GET
+    @Path("/{idUser}/watchlists")
     @Produces(MediaType.APPLICATION_JSON)
-    public Response addWatchListExistant(@PathParam("idUser") Long idUser, WatchInput idWatch) {
+    public Response getWatchList(@PathParam("idUser") Long idUser) {
         Optional<User> pOpt = userRepository.findById(idUser);
-        Optional<WatchList> lOpt = watchListRepository.findById(idWatch.getIdWatch());
 
-        if(!lOpt.isPresent() || !pOpt.isPresent()) {
+        if(!pOpt.isPresent()) {
             return Response.status(Response.Status.NOT_FOUND).build();
         }
 
         User u = pOpt.get();
-        WatchList w = lOpt.get();
+        return Response.ok(u.getWatchLists()).build();
+    }
+
+    @POST
+    @Path("{idUser}/watchlists/")
+    @Produces(MediaType.APPLICATION_JSON)
+    public Response addWatchList(@PathParam("idUser") Long idUser, WatchInput watchInput) {
+        Optional<User> pOpt = userRepository.findById(idUser);
+
+        if(!pOpt.isPresent()) {
+            return Response.status(Response.Status.NOT_FOUND).build();
+        }
+
+        User u = pOpt.get();
+        WatchList w = new WatchList(watchInput.getName(), watchInput.getDescription(), new ArrayList<>());
+
+        watchListRepository.save(w);
 
         if(u.getWatchLists() == null) {
             u.setWatchLists(new ArrayList<WatchList>());
@@ -77,8 +87,34 @@ public class UserResource {
         u.getWatchLists().add(w);
         userRepository.save(u);
         return Response.ok(u).build();
-    }*/
+    }
 
+
+    @DELETE
+    @Path("delete/{idUser}/watchlists/{idWatch}")
+    @Consumes(MediaType.APPLICATION_JSON)
+    @Produces(MediaType.APPLICATION_JSON)
+    public Response deleteWatchList(@PathParam("idUser") Long idUser, @PathParam("idWatch") Long idWatch) {
+        Optional<WatchList> pOpt = watchListRepository.findById(idWatch);
+        Optional<User> lOpt = userRepository.findById(idUser);
+        if(!lOpt.isPresent() || !pOpt.isPresent()) {
+            return Response.status(Response.Status.NOT_FOUND).build();
+        }
+
+        WatchList w = pOpt.get();
+        User u = lOpt.get();
+
+        u.getWatchLists().remove(w);
+        userRepository.save(u);
+
+        try {
+            watchListRepository.deleteById(idWatch);
+        } catch (Exception e) {
+            return Response.serverError().build();
+        }
+
+        return Response.noContent().build();
+    }
 
 
 }

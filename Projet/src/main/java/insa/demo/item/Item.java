@@ -1,6 +1,7 @@
 package insa.demo.item;
 
 import javax.persistence.*;
+import java.util.Objects;
 
 @Entity
 public class Item {
@@ -45,5 +46,13 @@ public class Item {
 
     public void setNbEpisodes(Long nbEpisodes) {
         this.nbEpisodes = nbEpisodes;
+    }
+
+    @Override
+    public boolean equals(Object o) {
+        if (this == o) return true;
+        if (o == null || getClass() != o.getClass()) return false;
+        Item item = (Item) o;
+        return Objects.equals(id, item.id);
     }
 }
