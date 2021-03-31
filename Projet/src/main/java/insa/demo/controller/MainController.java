@@ -65,4 +65,10 @@ public class MainController implements WebMvcConfigurer {
 
     @PostMapping("/ajout_anime_liste")
     public String mapPostAjoutAnimeListe(HttpSession session) { return "ajout_anime_liste";}
+
+    @GetMapping("/modif_mdp")
+    public String mapGetModifMDP(HttpSession session) { return "modif_mdp";}
+
+    @PostMapping("/modif_mdp")
+    public String mapPostModifMDP(HttpSession session) { return "modif_mdp";}
 }

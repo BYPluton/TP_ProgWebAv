@@ -1,12 +1,12 @@
 <!DOCTYPE html>
-<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<html lang="en">
     <head>
         <title>Accueil</title>
         <!-- Required meta tags -->
         <meta charset="utf-8">
         <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
         <!-- Bootstrap CSS -->
-        <link rel="stylesheet" type="text/css" href="css/profil.css">
+        <link rel="stylesheet" type="text/css" href="css/ajout_anime.css">
         <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-BmbxuPwQa2lc/FVzBcNJ7UAyJxM6wuqIj61tLrc4wSX0szH/Ev+nYRRuWlolflfl" crossorigin="anonymous">
     </head>
     <body>
@@ -21,21 +21,18 @@
             </div>
             <div class="block">
                 <div>
-                    <ul class="ul"><li class ="li"><a>Votre profil</a></li></ul>
+                    <ul class="ul"><li class ="li"><a>Nouveau mot de passe :</a></li></ul>
                 </div>
-                <div class="watchliste">
-                    <ul>
-                        <li id="username"></li>
-                        <li id="pseudo"></li>
-                        <li id="password"></li>
-                    </ul>
-                </div>
-            </div>
-            <div style="margin-top: 2.5%;margin-bottom:5%;">
-                <a class="btn btn-primary btn-lg" style="background-color: #333; border: none;" role="button" href="/modif_mdp">Modifier le mot de passe</button></a>
+                <form>
+                    <div  class="form-group">
+                      <label for="exampleInputEmail1">Nouveau mot de passe :</label>
+                      <input id ="mdp" type="text" class="form-control" aria-describedby="emailHelp" placeholder="Entrez le nouveau mot de passe" required>
+                    </div>
+                    <a type="submit" class="btn btn-primary" role="button" onclick="modiferMDP()">Modifier</button></a>
+                  </form>
             </div>
         </div>
     </body>
     <script type="text/javascript" src="js/jquery-3.6.0.min.js"></script>
-    <script type="text/javascript" src="js/profil.js"></script>
+    <script type="text/javascript" src="js/modif_mdp.js"></script>
 </html>

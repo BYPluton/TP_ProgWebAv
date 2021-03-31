@@ -24,13 +24,11 @@ function ajouterAnime(anime,liste){
 }
 
 function onChangeSelect(){
+    document.getElementById("liste4").length = 1;
     if($liste3.val() >= 0){
-        /*
-        REQUETE GET SUR ITEMS WATCHLIST
-        $.get("http://localhost:8080/rest/watchlists/items", function(animes){
-        document.getElementById("liste4").length = 1;
+        $.get("http://localhost:8080/rest/watchlists/"+$liste3.val()+"/items", function(animes){
         animes.forEach( anime => ajouterAnime(anime,$liste4));
-    })*/
+    })
     }
 }
 
@@ -39,7 +37,11 @@ function bouton_ajouter(){
         /*
         REQUETE POST ICI
         */
-        window.location.href = "/accueil";
+        $.ajax({
+            url: "http://localhost:8080/rest/watchlists/"+$liste1.val()+"/items/"+$liste2.val(),
+            type: 'POST',
+            success: function() {alert("Ajout réussi")}
+        });
     }
     else alert("Veuillez sélectionner des valeurs corrects !");
 }
@@ -49,7 +51,11 @@ function bouton_suppr(){
         /*
         REQUETE DELETE ICI
         */
-        window.location.href = "/accueil";
+        $.ajax({
+            url: "http://localhost:8080/rest/watchlists/"+$liste3.val()+"/items/"+$liste4.val(),
+            type: 'DELETE',
+            success: function() {alert("Suppression réussie")}
+        });
     }
     else alert("Veuillez sélectionner des valeurs corrects !");
 }

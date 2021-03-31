@@ -11,10 +11,12 @@ $(document).ready(function () {
 function supprimer(){
     $(".btn-danger").click(function(){
         let $id = $(this).attr('id');
-        alert("je dois me supprimer. ID = "+$id);
-        /*$.delete("http://localhost:8080/rest/items",$id,function(){
-            $(this).parent().parent().parent().remove();
-        })*/
+        $.ajax({
+            url: "http://localhost:8080/rest/items/delete/"+$id,
+            type: 'DELETE',
+            success: function() {}
+        });
+        $(this).parent().parent().parent().remove();
     })
 }
 function ajouter(anime){

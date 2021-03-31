@@ -36,9 +36,9 @@ public class UserResource {
     }
 
     @PATCH
-    @Path("{idUser}")
+    @Path("{idUser}/{mdp}")
     @Produces(MediaType.APPLICATION_JSON)
-    public Response changePassword(@PathParam("idUser") Long idUser, String password) {
+    public Response changePassword(@PathParam("idUser") Long idUser,@PathParam("mdp") String password) {
         Optional<User> pOpt = userRepository.findById(idUser);
 
         if(!pOpt.isPresent()) {

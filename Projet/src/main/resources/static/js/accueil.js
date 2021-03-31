@@ -25,9 +25,14 @@ function ajouter(liste){
 function supprimer(){
     $(".btn-danger").click(function(){
         let $id = $(this).attr('id');
-        alert("je dois me supprimer. ID = "+$id);
-        /*$.delete("http://localhost:8080/rest/watchlists",$id,function(){
+        /*$.delete("http://localhost:8080/rest/users/delete/{idUser}/watchlists/{idWatch}",$id,function(){
             $(this).parent().parent().parent().remove();
         })*/
+        $.ajax({
+            url: "http://localhost:8080/rest/users/delete/"+sessionStorage.getItem("idUser")+"/watchlists/"+$id,
+            type: 'DELETE',
+            success: function() {alert("Suppression réussi")}
+        });
+        window.location.href = "/accueil";
     })
 }
