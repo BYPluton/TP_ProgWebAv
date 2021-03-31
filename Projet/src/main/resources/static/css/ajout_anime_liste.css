@@ -1,0 +1,87 @@
+body{
+    background : url("img/background_accueil.jpg");
+    background-repeat: repeat;}
+
+.conteneur{
+    display: block;
+    width : 80%;
+    padding-left: 0px;
+    padding-right: 0px;
+    margin-left: auto;
+    margin-right:auto;}
+
+.navbarre{
+    margin: 0;
+    background-color:333 ;
+    padding-top: 0;
+    padding-bottom: 0;}
+
+.ul{
+    list-style-type: none;
+    margin: 0;
+    padding: 0;
+    overflow: hidden;
+    background-color: #333;}
+
+.li{
+    color :white;
+    float : left;
+    font-size: 20px;}
+
+.li a{
+    display: block;
+    text-align: center;
+    color: white;
+    font-size: 16px;
+    padding: 14px 16px;
+    text-decoration: none;}
+
+.navbarre li a:hover {
+    background-color: #111;
+    color: inherit;}
+
+.block{
+    margin-top: 5%;
+    background-color: white;
+}
+/*.watchliste{
+}*/
+
+.watchliste ul{
+    list-style-type: none;
+    margin: 0;
+    padding: 0;
+    overflow: hidden;
+    background-color: white;}
+
+.watchliste li{
+    font-size: 20px;
+    display: block;
+    text-align: left;
+    font-size: 20px;
+    padding: 14px 16px;
+    text-decoration: none;
+}
+
+form{
+    padding:2.5%;
+}
+
+.form-group{
+    margin-bottom: 1%;
+}
+.form-group:last-child{
+    margin-bottom: 0%;
+}
+.btn{
+    margin-top: 0%;
+    
+}
+.btn-primary{
+    background-color: #333!important;
+    border-color: #333!important;
+}
+
+label{
+    margin-bottom: 0.5%;
+}
