@@ -56,7 +56,7 @@ public class UserResource {
         return Response.ok(list).build();
     }
 
-    @POST
+    /*@POST
     @Path("{idUser}/watchlists")
     @Produces(MediaType.APPLICATION_JSON)
     public Response addWatchListExistant(@PathParam("idUser") Long idUser, WatchInput idWatch) {
@@ -77,7 +77,7 @@ public class UserResource {
         u.getWatchLists().add(w);
         userRepository.save(u);
         return Response.ok(u).build();
-    }
+    }*/
 
 
 

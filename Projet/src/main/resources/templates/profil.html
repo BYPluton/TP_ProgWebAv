@@ -24,12 +24,14 @@
                 </div>
                 <div class="watchliste">
                     <ul>
-                        <li><p th:text="'Username : ' + ${session.user.id}" /></li>
-                        <li><p th:text="'Pseudo : ' + ${session.user.pseudo}" /></li>
-                        <li><a>Adresse e-mail : </a></li>
+                        <li id="username"></li>
+                        <li id="pseudo"></li>
+                        <li id="password"></li>
                     </ul>
                 </div>
             </div>
         </div>
     </body>
+    <script type="text/javascript" src="js/jquery-3.6.0.min.js"></script>
+    <script type="text/javascript" src="js/profil.js"></script>
 </html>

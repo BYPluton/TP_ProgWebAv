@@ -19,7 +19,7 @@
         <h1>Connectez-vous</h1>
         <form action="#" th:action="@{/authentification}" th:object="${test}" method="post">
             <p>Pseudo: <input type="text" th:field="*{pseudo}" placeholder="Identifiant" required/></p>
-            <p>Mot de passe: <input type="text" th:field="*{mdp}" placeholder="Mot de passe" required/></p>
+            <p>Mot de passe: <input type="password" th:field="*{mdp}" placeholder="Mot de passe" required/></p>
             <p><input type="submit" value="Submit" />
         </form>
     </div>
