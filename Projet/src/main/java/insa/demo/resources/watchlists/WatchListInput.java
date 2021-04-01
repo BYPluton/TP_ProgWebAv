@@ -1,10 +1,10 @@
 package insa.demo.resources.watchlists;
 
-public class WatchInput {
+public class WatchListInput {
     String name;
     String description;
 
-    public WatchInput() {
+    public WatchListInput() {
         super();
     }
 

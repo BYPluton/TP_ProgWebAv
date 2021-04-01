@@ -38,7 +38,7 @@ public class ItemResource {
     }
 
     @DELETE
-    @Path("/delete/{id}")
+    @Path("/{id}")
     @Consumes(MediaType.APPLICATION_JSON)
     @Produces(MediaType.APPLICATION_JSON)
     public Response deleteItem(@PathParam("id") Long id) {

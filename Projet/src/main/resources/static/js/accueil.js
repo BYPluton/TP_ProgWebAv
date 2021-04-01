@@ -24,7 +24,7 @@ function ajouter(liste,j){
         }
         $("#test"+j).append('<div class="btn-group"><button id="' + liste.id + '" type="button" style="box-sizing: content-box;margin-top: 2%;" class="btn btn-danger">Supprimer</button></div></div> </div></div>')
     })
-    
+
 }
 function supprimer(){
     $(".btn-danger").click(function(){
@@ -33,12 +33,12 @@ function supprimer(){
             url: "http://localhost:8080/rest/users/delete/"+sessionStorage.getItem("idUser")+"/watchlists/"+$id,
             type: 'DELETE',
             success: function() {alert("Suppression réussi")
-            $(this).parent().parent().parent().remove();}
+                $(this).parent().parent().parent().remove();}
         });
         window.location.href = "/accueil";
     })
 }
 
 function ajoutAnimeListe(anime,id){
-    
+
 }

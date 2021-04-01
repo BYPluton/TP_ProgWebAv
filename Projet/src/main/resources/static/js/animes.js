@@ -12,7 +12,7 @@ function supprimer(){
     $(".btn-danger").click(function(){
         let $id = $(this).attr('id');
         $.ajax({
-            url: "http://localhost:8080/rest/items/delete/"+$id,
+            url: "http://localhost:8080/rest/items/"+$id,
             type: 'DELETE',
             success: function() {}
         });
