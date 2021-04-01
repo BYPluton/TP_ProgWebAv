@@ -3,6 +3,7 @@ package insa.demo.watchlist;
 import insa.demo.item.Item;
 
 import javax.persistence.*;
+import java.util.ArrayList;
 import java.util.List;
 import java.util.Objects;
 
@@ -62,5 +63,9 @@ public class WatchList {
         if (o == null || getClass() != o.getClass()) return false;
         WatchList watchList = (WatchList) o;
         return Objects.equals(id, watchList.id);
+    }
+
+    public void pop(){
+        this.setListItems(new ArrayList<>());
     }
 }

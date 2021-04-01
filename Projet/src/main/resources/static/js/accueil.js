@@ -13,7 +13,6 @@ $(document).ready(function () {
         for(let i = 0; i < listes.length; i++){
             ajouter(listes[i],i)
         }
-        supprimer();
     })
 });
 
@@ -29,6 +28,7 @@ function ajouter(liste,j){
             $("#test"+j).append('<small class="form-text text-muted">'+ listes[i].titre +'</small>');
         }
         $("#test"+j).append('<div class="btn-group"><button id="' + liste.id + '" type="button" style="box-sizing: content-box;margin-top: 2%;" class="btn btn-danger">Supprimer</button></div></div> </div></div>')
+        supprimer();
     })
     
 }

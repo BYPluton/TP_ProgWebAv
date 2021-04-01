@@ -60,4 +60,5 @@ public class User {
         this.watchLists = watchLists;
     }
 
+    public void addListe(WatchList l){this.watchLists.add(l);}
 }

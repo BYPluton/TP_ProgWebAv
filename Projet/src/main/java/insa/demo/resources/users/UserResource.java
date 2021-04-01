@@ -1,5 +1,7 @@
 package insa.demo.resources.users;
 
+import insa.demo.item.Item;
+import insa.demo.item.ItemRepository;
 import insa.demo.resources.watchlists.WatchListInput;
 import insa.demo.resources.watchlists.WatchInput;
 import insa.demo.user.User;
@@ -12,6 +14,7 @@ import javax.ws.rs.*;
 import javax.ws.rs.core.MediaType;
 import javax.ws.rs.core.Response;
 import java.util.ArrayList;
+import java.util.List;
 import java.util.Optional;
 
 @Path("users")
@@ -20,6 +23,8 @@ public class UserResource {
     private UserRepository userRepository;
     @Autowired
     private WatchListRepository watchListRepository;
+    @Autowired
+    private ItemRepository itemRepository;
 
     @GET
     @Produces(MediaType.APPLICATION_JSON)
@@ -63,7 +68,13 @@ public class UserResource {
         }
 
         User u = pOpt.get();
-        return Response.ok(u.getWatchLists()).build();
+
+        List<WatchList> l = new ArrayList<>();
+        for(WatchList w : u.getWatchLists()){
+            if(!l.contains(w))l.add(w);
+        }
+
+        return Response.ok(l).build();
     }
 
     @POST
@@ -85,7 +96,7 @@ public class UserResource {
             u.setWatchLists(new ArrayList<WatchList>());
         }
 
-        u.getWatchLists().add(w);
+        u.addListe(w);
         userRepository.save(u);
         return Response.ok(u).build();
     }
@@ -104,6 +115,14 @@ public class UserResource {
         WatchList w = pOpt.get();
         User u = lOpt.get();
 
+        ArrayList<Item> watch = new ArrayList<>();
+        itemRepository.findAll().forEach(watch::add);
+        for(Item i : watch) {
+            w.getListItems().remove(i);
+            itemRepository.save(i);
+        }
+        watchListRepository.save(w);
+        w = watchListRepository.findById(idWatch).get();
         u.getWatchLists().remove(w);
         userRepository.save(u);
 
