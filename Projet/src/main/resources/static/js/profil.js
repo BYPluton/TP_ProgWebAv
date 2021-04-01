@@ -3,6 +3,7 @@ let $pseudo = $("#pseudo");
 let $password = $("#password");
 
 $(document).ready(function () {
+    //Récupère les informations de l'utilisateur actif pour les afficher
     $.get("http://localhost:8080/rest/users/", sessionStorage.getItem("idUser"), function(data){
         $username.append('<p>Username : ' + data[0].name + '</p>');
         $pseudo.append('<p>Pseudo : ' + data[0].pseudo + '</p>');
