@@ -1,5 +1,6 @@
 package insa.demo.resources.users;
 
+import insa.demo.resources.watchlists.WatchListInput;
 import insa.demo.resources.watchlists.WatchInput;
 import insa.demo.user.User;
 import insa.demo.user.UserRepository;
@@ -68,7 +69,7 @@ public class UserResource {
     @POST
     @Path("{idUser}/watchlists/")
     @Produces(MediaType.APPLICATION_JSON)
-    public Response addWatchList(@PathParam("idUser") Long idUser, WatchInput watchInput) {
+    public Response addWatchList(@PathParam("idUser") Long idUser, WatchListInput watchListInput) {
         Optional<User> pOpt = userRepository.findById(idUser);
 
         if(!pOpt.isPresent()) {
@@ -76,7 +77,7 @@ public class UserResource {
         }
 
         User u = pOpt.get();
-        WatchList w = new WatchList(watchInput.getName(), watchInput.getDescription(), new ArrayList<>());
+        WatchList w = new WatchList(watchListInput.getName(), watchListInput.getDescription(), new ArrayList<>());
 
         watchListRepository.save(w);
 
@@ -88,7 +89,6 @@ public class UserResource {
         userRepository.save(u);
         return Response.ok(u).build();
     }
-
 
     @DELETE
     @Path("delete/{idUser}/watchlists/{idWatch}")
