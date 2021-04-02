@@ -1,0 +1,8 @@
+url : http://loacalhost:8080/rest/users 
+Requete post 
+Json : 
+{ 
+	"name": "nom de l'user", 
+	"pseudo": "pseudo de l'user", 
+	"password": "mot de passe de l'user"
+} 
