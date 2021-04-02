@@ -12,6 +12,13 @@ import org.springframework.web.bind.annotation.PostMapping;
 import javax.servlet.http.HttpSession;
 import java.util.Optional;
 
+/**
+ * AuthentificationController
+ * 
+ * @author  Birkan Yildiz & Nicolas Martin
+ * @version 1.0
+ */
+
 @Controller
 public class AuthentificationController {
 	@Autowired
@@ -23,6 +30,12 @@ public class AuthentificationController {
 		return "authentification";
 	}
 
+
+	/** Controle de connection d'un user
+	 * @param user 		donner de connection d'un user envoyer de la part du front 
+	 * @param model 	model 
+	 * @param session 	session http permettant le stock de l'utilisateur
+	 */
 	@PostMapping("/authentification")
 	public String testt(@ModelAttribute Test user, Model model, HttpSession session) {
 		Optional<User> pOpt = userRepository.findByPseudo(user.getPseudo());

@@ -5,6 +5,13 @@ import insa.demo.watchlist.WatchList;
 import javax.persistence.*;
 import java.util.List;
 
+/**
+ * User
+ * Entité stockant les données d'un utilisateur
+ * @author  Birkan Yildiz & Nicolas Martin
+ * @version 1.0
+ */
+
 @Entity
 public class User {
     @Id

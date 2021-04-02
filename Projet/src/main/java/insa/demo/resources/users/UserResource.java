@@ -17,6 +17,13 @@ import java.util.ArrayList;
 import java.util.List;
 import java.util.Optional;
 
+/**
+ * UserResource
+ * 
+ * @author  Birkan Yildiz & Nicolas Martin
+ * @version 1.0
+ */
+
 @Path("users")
 public class UserResource {
     @Autowired
@@ -26,6 +33,9 @@ public class UserResource {
     @Autowired
     private ItemRepository itemRepository;
 
+    /** 
+     * Obtention de tous les users
+     */
     @GET
     @Produces(MediaType.APPLICATION_JSON)
     public ArrayList<User> getUsers() {
@@ -34,6 +44,9 @@ public class UserResource {
         return users;
     }
 
+    /** 
+     * Création d'un user
+     */
     @POST
     @Consumes(MediaType.APPLICATION_JSON)
     @Produces(MediaType.APPLICATION_JSON)
@@ -41,6 +54,9 @@ public class UserResource {
         return userRepository.save(u);
     }
 
+    /** 
+     * Modification du mot de passe d'un user
+     */
     @PATCH
     @Path("{idUser}/{mdp}")
     @Produces(MediaType.APPLICATION_JSON)
@@ -57,6 +73,9 @@ public class UserResource {
         return Response.ok(u).build();
     }
 
+    /** 
+     * Obtention de toutes les watchlists d'un user
+     */
     @GET
     @Path("/{idUser}/watchlists")
     @Produces(MediaType.APPLICATION_JSON)
@@ -77,6 +96,9 @@ public class UserResource {
         return Response.ok(l).build();
     }
 
+    /** 
+     * Ajout d'une nouvelle watchlist à un user
+     */
     @POST
     @Path("{idUser}/watchlists/")
     @Produces(MediaType.APPLICATION_JSON)
@@ -101,6 +123,9 @@ public class UserResource {
         return Response.ok(u).build();
     }
 
+    /** 
+     * Suppression d'une watchlist d'un user
+     */
     @DELETE
     @Path("delete/{idUser}/watchlists/{idWatch}")
     @Consumes(MediaType.APPLICATION_JSON)

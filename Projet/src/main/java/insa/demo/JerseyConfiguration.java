@@ -8,6 +8,12 @@ import org.springframework.stereotype.Component;
 import org.glassfish.jersey.servlet.ServletProperties;
 import javax.ws.rs.ApplicationPath;
 
+/**
+ * JerseyConfiguration
+ * 
+ * @author  Birkan Yildiz & Nicolas Martin
+ * @version 1.0
+ */
 
 @Component
 @ApplicationPath("rest")

@@ -1,7 +1,12 @@
 package insa.demo.controller;
 
+/**
+ * Test
+ * Classe envoyant les données à l'authentification d'un utilisateur
+ * @author  Birkan Yildiz & Nicolas Martin
+ * @version 1.0
+ */
 public class Test {
-	//Ca marche que si la classe s'appelle test
 
 	private String pseudo;
 	private String mdp;

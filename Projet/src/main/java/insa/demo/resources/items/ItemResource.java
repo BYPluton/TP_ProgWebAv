@@ -14,6 +14,14 @@ import javax.ws.rs.core.Response;
 import java.util.ArrayList;
 import java.util.Optional;
 
+
+/**
+ * ItemResource
+ * 
+ * @author  Birkan Yildiz & Nicolas Martin
+ * @version 1.0
+ */
+
 @Path("items")
 public class ItemResource {
     @Autowired
@@ -22,6 +30,9 @@ public class ItemResource {
     @Autowired
     private WatchListRepository watchListRepository;
 
+    /** 
+     * Obtention de tous les items
+     */
     @GET
     @Produces(MediaType.APPLICATION_JSON)
     public ArrayList<Item> getItems() {
@@ -30,6 +41,9 @@ public class ItemResource {
         return items;
     }
 
+    /** 
+     * Creation d'un item
+     */
     @POST
     @Consumes(MediaType.APPLICATION_JSON)
     @Produces(MediaType.APPLICATION_JSON)
@@ -37,6 +51,9 @@ public class ItemResource {
         return itemRepository.save(i);
     }
 
+    /** 
+     * Suppression d'un item par son id
+     */
     @DELETE
     @Path("/delete/{id}")
     @Consumes(MediaType.APPLICATION_JSON)

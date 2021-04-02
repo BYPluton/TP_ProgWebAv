@@ -8,15 +8,27 @@ import org.thymeleaf.spring5.SpringTemplateEngine;
 import org.thymeleaf.spring5.view.ThymeleafViewResolver;
 import org.thymeleaf.templateresolver.ClassLoaderTemplateResolver;
 
+/**
+ * DemoApplication
+ * 
+ * @author  Birkan Yildiz & Nicolas Martin
+ * @version 1.0
+ */
+
 @SpringBootApplication
 public class DemoApplication {
 
 	/*
-	Pour lancer la base : java -cp hsqldb.jar org.hsqldb.server.Server --database.0 file:tpBDD --dbname.0 tpBDD
+		Pour lancer la base : java -cp hsqldb.jar org.hsqldb.server.Server --database.0 file:tpBDD --dbname.0 tpBDD
 	 */
 	public static void main(String[] args) {
 		SpringApplication.run(DemoApplication.class, args);
 	}
+
+
+	/** 
+	 * Bean utile à la bibliothèque ThymeLeaf
+	 */
 	@Bean
 	public ViewResolver viewResolver() {
 		ClassLoaderTemplateResolver templateResolver = new ClassLoaderTemplateResolver();

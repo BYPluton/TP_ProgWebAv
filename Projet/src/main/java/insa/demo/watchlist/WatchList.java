@@ -7,6 +7,13 @@ import java.util.ArrayList;
 import java.util.List;
 import java.util.Objects;
 
+/**
+ * WatchList
+ * Entité stockant les données d'une watchlist
+ * @author  Birkan Yildiz & Nicolas Martin
+ * @version 1.0
+ */
+
 @Entity
 public class WatchList {
     @Id

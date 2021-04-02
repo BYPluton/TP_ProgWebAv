@@ -12,14 +12,28 @@ import org.springframework.web.servlet.config.annotation.WebMvcConfigurer;
 import javax.servlet.http.HttpSession;
 
 
+/**
+ * Controller
+ * 
+ * @author  Birkan Yildiz & Nicolas Martin
+ * @version 1.0
+ */
+
 @Controller
 public class MainController implements WebMvcConfigurer {
 
+	/** Ajout du controller authentification dans le registre
+	 * @param registry 	registre de gestion du front
+	 */
     @Override
     public void addViewControllers(ViewControllerRegistry registry) {
         registry.addViewController("/authentification").setViewName("authentification");
     }
 
+
+    /** 
+	 * Mapping des différentes pages du site 
+	 */
     @GetMapping("/")
     public String mapGet() {
         return "redirect:/authentification";

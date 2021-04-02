@@ -15,6 +15,13 @@ import javax.ws.rs.core.Response;
 import java.util.ArrayList;
 import java.util.Optional;
 
+/**
+ * WatchListResource
+ * 
+ * @author  Birkan Yildiz & Nicolas Martin
+ * @version 1.0
+ */
+
 @Path("watchlists")
 public class WatchListResource {
     @Autowired
@@ -23,6 +30,9 @@ public class WatchListResource {
     @Autowired
     private ItemRepository itemRepository;
 
+    /** 
+     * Obtention de toutes les watchlists
+     */
     @GET
     @Produces(MediaType.APPLICATION_JSON)
     public ArrayList<WatchList> getWatchLists() {
@@ -31,6 +41,9 @@ public class WatchListResource {
         return watchLists;
     }
 
+    /** 
+     * création d'une watchlist
+     */
     @POST
     @Consumes(MediaType.APPLICATION_JSON)
     @Produces(MediaType.APPLICATION_JSON)
@@ -38,6 +51,9 @@ public class WatchListResource {
         return watchListRepository.save(u);
     }
 
+    /** 
+     * Obtention des items d'une watchlist
+     */
     @GET
     @Path("{idWatch}/items/")
     @Produces(MediaType.APPLICATION_JSON)
@@ -50,6 +66,9 @@ public class WatchListResource {
         return Response.ok(w.getListItems()).build();
     }
 
+    /** 
+     * Suppression d'un anime d'une watchlist
+     */
     @DELETE
     @Path("{idWatch}/items/{idItem}")
     @Produces(MediaType.APPLICATION_JSON)
@@ -69,6 +88,9 @@ public class WatchListResource {
         return Response.ok(w).build();
     }
 
+    /** 
+     * Ajout d'un anime d'une watchlist
+     */
     @POST
     @Path("{idWatch}/items/{idItem}")
     @Produces(MediaType.APPLICATION_JSON)

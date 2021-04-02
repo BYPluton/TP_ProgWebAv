@@ -1,5 +1,11 @@
 package insa.demo.resources.watchlists;
 
+/**
+ * WatchListInput
+ * class permettant la création d'une watchlist depuis le front
+ * @author  Birkan Yildiz & Nicolas Martin
+ * @version 1.0
+ */
 public class WatchListInput {
     String name;
     String description;

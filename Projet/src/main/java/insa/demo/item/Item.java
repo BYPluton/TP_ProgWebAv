@@ -3,6 +3,13 @@ package insa.demo.item;
 import javax.persistence.*;
 import java.util.Objects;
 
+/**
+ * Item
+ * Entité stockant les données d'un anime
+ * @author  Birkan Yildiz & Nicolas Martin
+ * @version 1.0
+ */
+
 @Entity
 public class Item {
     @Id
