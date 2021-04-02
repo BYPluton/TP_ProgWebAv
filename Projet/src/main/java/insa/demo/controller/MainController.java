@@ -1,6 +1,5 @@
 package insa.demo.controller;
 
-import insa.demo.resources.users.UserInput;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;

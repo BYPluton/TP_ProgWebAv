@@ -3,7 +3,6 @@ package insa.demo.resources.users;
 import insa.demo.item.Item;
 import insa.demo.item.ItemRepository;
 import insa.demo.resources.watchlists.WatchListInput;
-import insa.demo.resources.watchlists.WatchInput;
 import insa.demo.user.User;
 import insa.demo.user.UserRepository;
 import insa.demo.watchlist.WatchList;
